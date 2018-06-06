@@ -1,5 +1,4 @@
 [enterprise]
-localhost
 
 [all:vars]
 ansible_user=root
