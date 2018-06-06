@@ -1,0 +1,76 @@
+---
+- name: enable extras repo
+  yum:
+    name: epel-release
+    state: present
+
+# Install Python requirements
+- name: install python tools
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - python-pip
+    - python-devel
+    - gcc
+
+# Configure Ansible to support Windows Remote management with Kerberos Authentication
+- name: install ansible windows kerberos dependencies
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - krb5-devel
+    - krb5-libs
+    - krb5-workstation
+
+- name: install pywinrm and pywinrm-kerberos
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - pywinrm
+    - pywinrm[kerberos]
+
+- name: Copy Kerberos reaml configuration file
+  template:
+    src: kerberos-reamls.j2
+    dest: /etc/krb5.conf
+    owner: root
+    group: root
+    mode: 0644
+
+# Install various python libraries for module support
+
+- name: install ansible microsoft azure dependencies
+  pip:
+    name: ansible[azure]
+
+- name: install napalm-ansible
+  pip:
+    name: napalm-ansible
+
+- name: install network address filter
+  pip:
+    name: netaddr
+
+- name: install F5 dependencies
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - f5-sdk
+    - bigsuds
+    - deepdiff
+
+- name: install AWS dependencies
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - boto
+    - boto3
+    - botocore
+
+# Upgrade ansible to latest stable version published on EPEL repo
+- name: upgrade ansible to latest version
+  yum:
+    name: ansible
+    state: latest

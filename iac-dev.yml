@@ -1,0 +1,11 @@
+- hosts: localhost
+
+  tasks:
+ 
+  - name: Enable remote desktop and deploy development tools - Visual Studio Code and latest version Git
+    include_role:
+       name: dev-workstation
+ 
+  - name: Deploy latest version of ansible, enable windows remote management with kerberos and install various module dependencies
+    include_role:
+       name: ansible-engine

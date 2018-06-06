@@ -1,0 +1,77 @@
+---
+
+# Install systems admistration tools 
+
+- name: install systems administration tools
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - net-tools
+
+# Install XRDP
+
+- name: enable extras repo
+  yum:
+    name: epel-release
+    state: present
+
+- name: install xrdp
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - xrdp
+    - tigervnc-server
+
+- name: start and enable xrdp service
+  service:
+    name: xrdp
+    enabled: yes
+    state: started
+
+- name: enable rdp 3389/tcp
+  firewalld:
+    port: 3389/tcp
+    permanent: true
+    state: enabled
+  notify: restart firewalld
+
+- name: Configure SE Linux for XRDP
+  sefcontext:
+    target: "{{ item }}"
+    setype: bin_t
+    state: present
+  with_items:
+    - '/usr/sbin/xrdp'
+    - '/usr/sbin/xrdp-sesman'
+
+# Install Microsot Visual Studio Code
+
+- name: import microsoft key for vscode install
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: create vscode repo
+  template:
+    src: vscoderepo.j2
+    dest: /etc/yum.repos.d/vscode.repo
+
+- name: install vscode
+  yum:
+    name: code
+    state: latest
+
+# Update Git Version
+
+- name: enable WANDisco's repo for access to latest Git version
+  yum:
+    name: http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+    state: present
+
+- name: Update Git version
+  yum:
+    name: git
+    state: latest
+
