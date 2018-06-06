@@ -26,6 +26,7 @@ It configures your IaC Development workstation with:
 ### Things that still need to be done manually
 
 - Install recommended vscode extentions:
+
   - [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml_)
   - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
   - [Jinja](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja)
@@ -36,6 +37,6 @@ It configures your IaC Development workstation with:
   - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
   - [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
 
-## PRs are welcome
+## PRs welcome
 
-Please submit PR to help enhance this playbook
+Please submit a PR to help enhance this playbook!
