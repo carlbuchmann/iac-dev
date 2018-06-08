@@ -5,7 +5,7 @@
     state: present
 
 # Install Python requirements
-- name: install python tools
+- name: install python tools and cryptography
   yum:
     name: "{{ item }}"
     state: present
@@ -13,6 +13,7 @@
     - python-pip
     - python-devel
     - gcc
+    - python-cryptography
 
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
 - name: install ansible windows kerberos dependencies
