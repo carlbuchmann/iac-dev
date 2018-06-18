@@ -17,7 +17,7 @@ It configures your IaC Development workstation with:
   2. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo yum install ansible`.
   3. [Install Git](https://git-scm.com/download/linux): `sudo yum install git`
   4. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  5. Edit `./iac-dev/roles/ansible-engine/main.yml` and enter your active directory domain information.
+  5. Edit `.iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information.
   6. run playbook: `sudo ansible-playbook iac-dev.yml`
   7. launch vscode: `code` and install recommended extensions!
 
