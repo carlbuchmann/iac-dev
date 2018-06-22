@@ -1,4 +1,4 @@
-# iac-dev - Release 0.1
+# iac-dev - Release 1.0
 
 This playbook configures centos/redhat workstation for `Infrastructure as Code` development with Ansible.
 
@@ -14,28 +14,35 @@ It configures your IaC Development workstation with:
 ## Installation Instructions
 
   1. Download and install latest version of Centos/RedHat 7 with Gnome Desktop Environment [Centos Download](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1804.iso).
-  2. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo yum install ansible`.
-  3. [Install Git](https://git-scm.com/download/linux): `sudo yum install git`
-  4. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  5. Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information.
-  6. run playbook: `sudo ansible-playbook iac-dev.yml`
-  7. launch vscode: `code` and install recommended extensions!
+  2. During installation, create your local user and grant administrator privileges
+  3. After successful installation, open a terminal window:
+  4. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo yum install ansible`.
+  5. [Install Git](https://git-scm.com/download/linux): `sudo yum install git`
+  6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
+  7. Optional - Required to enable Kerberos authentication for WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
+  8. run playbook: `sudo ansible-playbook iac-dev.yml`
+  9. launch vscode: `code` and install recommended extensions!
+
+## Getting Started with IaC
+
+  1. [Getting Started with VSCode](https://code.visualstudio.com/docs)
+  2. [Getting Started with Ansible](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html)
 
 ## Future additions
 
 ### Things that still need to be done manually
 
-- Install recommended vscode extentions:
+#### recommended Visual Studio Code extentions
 
-  - [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml_)
-  - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  - [Jinja](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja)
-  - [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
-  - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
-  - [Ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible)
-  - [Excel Viewer](https://marketplace.visualstudio.com/items?itemName=GrapeCity.gc-excelviewer)
-  - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-  - [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
+- [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml_)
+- [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+- [Jinja](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja)
+- [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
+- [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
+- [Ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible)
+- [Excel Viewer](https://marketplace.visualstudio.com/items?itemName=GrapeCity.gc-excelviewer)
+- [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
+- [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
 
 ## PRs welcome
 
