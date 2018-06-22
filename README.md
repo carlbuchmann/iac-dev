@@ -14,12 +14,12 @@ It configures your IaC Development workstation with:
 ## Installation Instructions
 
   1. Download and install latest version of Centos/RedHat 7 with Gnome Desktop Environment [Centos Download](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1804.iso).
-  2. During installation, create your local user and grant administrator privileges
+  2. During installation, create local user and grant administrator privileges
   3. After successful installation, open a terminal window:
   4. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo yum install ansible`.
   5. [Install Git](https://git-scm.com/download/linux): `sudo yum install git`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. Optional - Required to enable Kerberos authentication for WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
+  7. *Optional* - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
   9. launch vscode: `code` and install recommended extensions!
 
