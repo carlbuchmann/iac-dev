@@ -15,6 +15,18 @@
     - gcc
     - python-cryptography
 
+# Install Powershell Core
+
+- name: create microsoft repo
+  template:
+    src: microsoft-repo.j2
+    dest: /etc/yum.repos.d/microsoft.repo
+
+- name: install PowerShell Core
+  yum:
+    name: powershell
+    state: present
+
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
 - name: install ansible windows kerberos dependencies
   yum:
@@ -69,6 +81,16 @@
     - boto
     - boto3
     - botocore
+
+- name: install Google Cloud dependencies
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - apache-libcloud
+    - boto
+    - google-auth
+    - google-cloud-pubsub
+
 
 # Upgrade ansible to latest stable version published on EPEL repo
 - name: upgrade ansible to latest version
