@@ -82,6 +82,16 @@
     - boto3
     - botocore
 
+- name: install Google Cloud dependencies
+  pip:
+    name: "{{ item }}"
+  with_items:
+    - apache-libcloud
+    - boto
+    - google-auth
+    - google-cloud-pubsub
+
+
 # Upgrade ansible to latest stable version published on EPEL repo
 - name: upgrade ansible to latest version
   yum:
