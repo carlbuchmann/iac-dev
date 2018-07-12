@@ -1,4 +1,4 @@
-# iac-dev - Release 1.0
+# iac-dev - Release 1.1
 
 This playbook configures centos/redhat workstation for `Infrastructure as Code` development with Ansible.
 
@@ -6,10 +6,12 @@ It configures your IaC Development workstation with:
 
 - Remote Desktop (xRDP+TigerVNC) for easy access
 - [Microsoft Visual Studio Code](https://code.visualstudio.com/)
+- Python
+- PowerShell Core for Linux
 - Latest Version of Git
 - Latest Version of Ansible +
   - WinRM + Kerberos Authentication for windows automation through Ansible
-  - Various python libraries for common modules (Azure,AWS,F5,NAPALM, or add your own!)
+  - Various python libraries for common modules (Azure,AWS,Google Cloud,F5,NAPALM, or add your own!)
 
 ## Installation Instructions
 
@@ -34,7 +36,7 @@ It configures your IaC Development workstation with:
 
 #### recommended Visual Studio Code extentions
 
-- [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml_)
+- [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
 - [Jinja](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja)
 - [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
