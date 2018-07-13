@@ -1,5 +1,15 @@
 ---
 
+# Install Gnome
+
+- name: install Gnome Desktop
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - "GNOME Desktop"
+    - "Graphical Administration Tools"
+
 # Install systems admistration tools 
 
 - name: install systems administration tools
