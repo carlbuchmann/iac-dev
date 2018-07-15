@@ -1,14 +1,11 @@
 ---
 
-# Install Gnome
+# Install Gnome Desktop Environment
 
 - name: install Gnome Desktop
-  yum:
-    name: "{{ item }}"
+  yum: 
+    name: "@^gnome-desktop-environment"
     state: present
-  with_items:
-    - "GNOME Desktop"
-    - "Graphical Administration Tools"
 
 # Install systems admistration tools 
 
