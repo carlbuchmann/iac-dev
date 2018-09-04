@@ -1,4 +1,8 @@
 ---
+# Load environment specific variables
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
 
 # Install systems admistration tools 
 
@@ -11,18 +15,11 @@
 
 # Install XRDP
 
-- name: enable extras repo
-  package:
-    name: epel-release
-    state: present
-
 - name: install xrdp
   package:
     name: "{{ item }}"
     state: present
-  with_items:
-    - xrdp
-    - tigervnc-server
+  with_items: "{{ xrdp_packages }}"
 
 - name: start and enable xrdp service
   service:

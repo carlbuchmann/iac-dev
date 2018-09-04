@@ -1,8 +1,15 @@
 ---
+# Load environment specific variables
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+# Enable extras repo required for various packages - RedHat OS Family only
 - name: enable extras repo
   package:
     name: epel-release
     state: present
+  when: ansible_os_family == "RedHat"
 
 # Install Python requirements
 - name: install python tools and cryptography

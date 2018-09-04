@@ -1,0 +1,6 @@
+---
+
+xrdp_packages:
+ - epel-release
+ - xrdp
+ - tigervnc-server
