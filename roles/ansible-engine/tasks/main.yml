@@ -1,12 +1,12 @@
 ---
 - name: enable extras repo
-  yum:
+  package:
     name: epel-release
     state: present
 
 # Install Python requirements
 - name: install python tools and cryptography
-  yum:
+  package:
     name: "{{ item }}"
     state: present
   with_items:
@@ -23,13 +23,13 @@
     dest: /etc/yum.repos.d/microsoft.repo
 
 - name: install PowerShell Core
-  yum:
+  package:
     name: powershell
     state: present
 
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
 - name: install ansible windows kerberos dependencies
-  yum:
+  package:
     name: "{{ item }}"
     state: present
   with_items:
@@ -94,6 +94,6 @@
 
 # Upgrade ansible to latest stable version published on EPEL repo
 - name: upgrade ansible to latest version
-  yum:
+  package:
     name: ansible
     state: latest

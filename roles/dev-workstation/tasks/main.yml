@@ -3,7 +3,7 @@
 # Install systems admistration tools 
 
 - name: install systems administration tools
-  yum:
+  package:
     name: "{{ item }}"
     state: present
   with_items:
@@ -12,12 +12,12 @@
 # Install XRDP
 
 - name: enable extras repo
-  yum:
+  package:
     name: epel-release
     state: present
 
 - name: install xrdp
-  yum:
+  package:
     name: "{{ item }}"
     state: present
   with_items:
@@ -59,19 +59,19 @@
     dest: /etc/yum.repos.d/vscode.repo
 
 - name: install vscode
-  yum:
+  package:
     name: code
     state: latest
 
 # Update Git Version
 
 - name: enable WANDisco's repo for access to latest Git version
-  yum:
+  package:
     name: http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
     state: present
 
 - name: Update Git version
-  yum:
+  package:
     name: git
     state: latest
 
