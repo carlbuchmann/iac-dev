@@ -1,0 +1,18 @@
+---
+
+# Install Microsot Visual Studio Code on Cento/RedHat
+
+- name: import microsoft key for vscode install
+  rpm_key:
+    state: present
+    key: https://packages.microsoft.com/keys/microsoft.asc
+
+- name: create vscode repo
+  template:
+    src: vscoderepo.j2
+    dest: /etc/yum.repos.d/vscode.repo
+
+- name: install vscode
+  package:
+    name: code
+    state: latest

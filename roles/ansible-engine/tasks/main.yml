@@ -22,18 +22,6 @@
     - gcc
     - python-cryptography
 
-# Install Powershell Core
-
-- name: create microsoft repo
-  template:
-    src: microsoft-repo.j2
-    dest: /etc/yum.repos.d/microsoft.repo
-
-- name: install PowerShell Core
-  package:
-    name: powershell
-    state: present
-
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
 - name: install ansible windows kerberos dependencies
   package:
