@@ -1,4 +1,4 @@
-# iac-dev - Release 1.1
+# iac-dev - Release 2.0rc
 
 This playbook configures RedHat/Centos or Debian/Ubuntu workstation for `Infrastructure as Code` development with Ansible.
 
@@ -31,12 +31,15 @@ It configures your IaC Development workstation with:
   1. Download and install latest version of Debian/Ubuntu 18.0.4 Desktop [Ubuntu Download](https://www.ubuntu.com/download/desktop).
   2. During installation, create local user and grant administrator privileges
   3. After successful installation, open a terminal window:
-  4. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo apt-get install ansible`.
+  4. [Install Ansible](http://docs.ansible.com/intro_installation.html): 
+     - `sudo apt-add-repository ppa:ansible/ansible`
+     - `sudo apt-get update`
+     - `sudo apt-get install ansible`.
   5. [Install Git](https://git-scm.com/download/linux): `sudo apt-get install git-core`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
   7. *Optional* - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
-  9. launch vscode: `code` and install recommended extensions!
+  9.  launch vscode: `code` and install recommended extensions!
 
 ## Getting Started with IaC
 
