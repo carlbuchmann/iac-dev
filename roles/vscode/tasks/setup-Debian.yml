@@ -1,0 +1,27 @@
+---
+
+- name: install vscode dependencies
+  apt:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - ca-certificates
+    - apt-transport-https
+
+- name: install vscode key
+  apt_key:
+    url: 'https://packages.microsoft.com/keys/microsoft.asc'
+    state: present
+
+- name: install vscode repo
+  become: yes
+  apt_repository:
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main
+    filename: vscode
+    state: present
+
+- name: install vscode
+  become: yes
+  apt:
+    name: code
+    state: latest
