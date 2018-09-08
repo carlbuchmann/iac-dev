@@ -8,7 +8,7 @@
     - ca-certificates
     - apt-transport-https
 
-- name: install vscode key
+- name:  import microsoft packages key
   apt_key:
     url: 'https://packages.microsoft.com/keys/microsoft.asc'
     state: present
