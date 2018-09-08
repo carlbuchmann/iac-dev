@@ -16,21 +16,14 @@
   package:
     name: "{{ item }}"
     state: present
-  with_items:
-    - python-pip
-    - python-devel
-    - gcc
-    - python-cryptography
+  with_items: "{{ python_tools }}"
 
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
-- name: install ansible windows kerberos dependencies
+- name: install kerberos libraries dependencies
   package:
     name: "{{ item }}"
     state: present
-  with_items:
-    - krb5-devel
-    - krb5-libs
-    - krb5-workstation
+  with_items: "{{ kerberos_libraries }}"
 
 - name: install pywinrm and pywinrm-kerberos
   pip:
@@ -39,7 +32,7 @@
     - pywinrm
     - pywinrm[kerberos]
 
-- name: Copy Kerberos reaml configuration file
+- name: Configure Kerberos reamls
   template:
     src: kerberos-reamls.j2
     dest: /etc/krb5.conf
