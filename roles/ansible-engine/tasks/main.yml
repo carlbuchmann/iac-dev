@@ -25,12 +25,15 @@
     state: present
   with_items: "{{ kerberos_libraries }}"
 
-- name: install pywinrm and pywinrm-kerberos
+- name: install python winrm and kerberos dependencies
   pip:
     name: "{{ item }}"
   with_items:
     - pywinrm
     - pywinrm[kerberos]
+    - pykerberos
+    - requests-kerberos
+    - requests-ntlm
 
 - name: Configure Kerberos reamls
   template:
