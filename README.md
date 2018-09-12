@@ -19,7 +19,10 @@ It configures your IaC Development workstation with:
   2. During installation, create local user and grant administrator privileges
   3. After successful installation, open a terminal window:
   4. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo yum install ansible`.
-  5. [Install Git](https://git-scm.com/download/linux): `sudo yum install git`
+  5. [Install Git](https://git-scm.com/download/linux) and configure Git user: 
+     - `sudo yum install git`
+     - `git config --global user.email "you@example.com"`
+     - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
   7. *Optional* - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
@@ -35,11 +38,14 @@ It configures your IaC Development workstation with:
      - `sudo apt-add-repository ppa:ansible/ansible`
      - `sudo apt-get update`
      - `sudo apt-get install ansible`.
-  5. [Install Git](https://git-scm.com/download/linux): `sudo apt-get install git-core`
+  5. [Install Git](https://git-scm.com/download/linux) and configure Git user:
+     - `sudo apt-get install git-core`
+     - `git config --global user.email "you@example.com"`
+     - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
   7. *Optional* - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
-  9.  launch vscode: `code` and install recommended extensions!
+  9. launch vscode: `code` and install recommended extensions!
 
 ## Getting Started with IaC
 
