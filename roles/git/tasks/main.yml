@@ -1,0 +1,17 @@
+---
+
+# Update Git Version Centos/RedHat
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: enable WANDisco's repo for access to latest Git version (RedHat only)
+  package:
+    name: http://opensource.wandisco.com/centos/7/git/x86_64/wandisco-git-release-7-2.noarch.rpm
+    state: present
+  when: ansible_os_family == 'RedHat'
+
+- name: Update Git version
+  package:
+    name: "{{ git_package }}"
+    state: latest

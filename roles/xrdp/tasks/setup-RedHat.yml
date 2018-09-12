@@ -1,0 +1,32 @@
+# Install XRDP
+
+- name: install xrdp
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - epel-release
+    - xrdp
+    - tigervnc-server
+
+- name: start and enable xrdp service
+  service:
+    name: xrdp
+    enabled: yes
+    state: started
+
+- name: enable rdp 3389/tcp
+  firewalld:
+    port: 3389/tcp
+    permanent: true
+    state: enabled
+  notify: restart firewalld
+
+- name: Configure SE Linux for XRDP
+  sefcontext:
+    target: "{{ item }}"
+    setype: bin_t
+    state: present
+  with_items:
+    - '/usr/sbin/xrdp'
+    - '/usr/sbin/xrdp-sesman'
