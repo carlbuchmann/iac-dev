@@ -4,7 +4,6 @@ This playbook configures RedHat/Centos or Debian/Ubuntu workstation for `Infrast
 
 It configures your IaC Development workstation with:
 
-- Remote Desktop (xRDP+TigerVNC) for easy access
 - [Microsoft Visual Studio Code](https://code.visualstudio.com/)
 - Python
 - PowerShell Core for Linux
@@ -12,6 +11,7 @@ It configures your IaC Development workstation with:
 - Latest Version of Ansible +
   - WinRM + Kerberos Authentication for windows automation through Ansible
   - Various python libraries for common modules (Azure,AWS,Google Cloud,F5,NAPALM, or add your own!)
+- Remote Desktop (xRDP+TigerVNC) for easy access (RedHat/Centos Only)
 
 ## Installation Instructions RedHat/Centos
 
