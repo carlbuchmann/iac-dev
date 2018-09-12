@@ -5,6 +5,7 @@ python_tools:
   - python-dev
   - gcc
   - python-cryptography
+  - python-gssapi
 
 kerberos_libraries:
   - libkrb5-dev
