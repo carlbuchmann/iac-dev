@@ -1,0 +1,9 @@
+vs_code_extensions:
+  - redhat.vscode-yaml
+  - wholroyd.jinja
+  - ms-python.python
+  - ms-vscode.PowerShell
+  - vscoss.vscode-ansible
+  - GrapeCity.gc-excelviewer
+  - yzhang.markdown-all-in-one
+  - eamodio.gitlens
