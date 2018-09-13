@@ -58,6 +58,10 @@
   pip:
     name: ansible[azure]
 
+- name: upgrade jinja2 to 2.10 or later
+  pip:
+    name: Jinja2>=2.10
+
 - name: install napalm-ansible
   pip:
     name: napalm-ansible
