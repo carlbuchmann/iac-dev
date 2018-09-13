@@ -1,0 +1,13 @@
+---
+
+python_tools:
+  - python-pip
+  - python-devel
+  - gcc
+  - python-cryptography
+  - python-gssapi
+
+kerberos_libraries:
+  - krb5-devel
+  - krb5-libs
+  - krb5-workstation

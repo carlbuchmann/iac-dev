@@ -1,50 +1,41 @@
 ---
+# Load environment specific variables
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+# Enable extras repo required for various packages - RedHat OS Family only
 - name: enable extras repo
-  yum:
+  package:
     name: epel-release
     state: present
+  when: ansible_os_family == "RedHat"
 
 # Install Python requirements
 - name: install python tools and cryptography
-  yum:
+  package:
     name: "{{ item }}"
     state: present
-  with_items:
-    - python-pip
-    - python-devel
-    - gcc
-    - python-cryptography
-
-# Install Powershell Core
-
-- name: create microsoft repo
-  template:
-    src: microsoft-repo.j2
-    dest: /etc/yum.repos.d/microsoft.repo
-
-- name: install PowerShell Core
-  yum:
-    name: powershell
-    state: present
+  with_items: "{{ python_tools }}"
 
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
-- name: install ansible windows kerberos dependencies
-  yum:
+- name: install kerberos libraries dependencies
+  package:
     name: "{{ item }}"
     state: present
-  with_items:
-    - krb5-devel
-    - krb5-libs
-    - krb5-workstation
+  with_items: "{{ kerberos_libraries }}"
 
-- name: install pywinrm and pywinrm-kerberos
+- name: install python winrm and kerberos dependencies
   pip:
     name: "{{ item }}"
   with_items:
     - pywinrm
     - pywinrm[kerberos]
+    - pykerberos>=1.2.1
+    - requests-kerberos
+    - requests-ntlm
 
-- name: Copy Kerberos reaml configuration file
+- name: Configure Kerberos reamls
   template:
     src: kerberos-reamls.j2
     dest: /etc/krb5.conf
@@ -98,6 +89,6 @@
 
 # Upgrade ansible to latest stable version published on EPEL repo
 - name: upgrade ansible to latest version
-  yum:
+  package:
     name: ansible
     state: latest

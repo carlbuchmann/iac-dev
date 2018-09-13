@@ -2,10 +2,23 @@
 
   tasks:
  
-  - name: Enable remote desktop and deploy development tools - Visual Studio Code and latest version Git
+  - name: Install XRDP
     include_role:
-       name: dev-workstation
- 
+       name: xrdp
+
+  - name: Install Visual Studio Code
+    include_role:
+       name: vscode
+
+  - name: Install Git
+    include_role:
+       name: git
+
+  - name: Install PowerShell
+    include_role:
+       name: powershell
+
   - name: Deploy latest version of ansible, enable windows remote management with kerberos and install various module dependencies
     include_role:
        name: ansible-engine
+

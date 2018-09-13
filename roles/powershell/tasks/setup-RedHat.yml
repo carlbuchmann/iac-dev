@@ -1,0 +1,17 @@
+---
+
+# Install Powershell Core
+
+- name: install microsoft prod repo
+  yum_repository:
+    name: packages-microsoft-com-prod
+    description: microsoft prod packages
+    file: vscode
+    baseurl: https://packages.microsoft.com/rhel/7/prod/
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: yes
+
+- name: install PowerShell Core
+  yum:
+    name: powershell
+    state: present
