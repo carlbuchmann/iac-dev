@@ -1,4 +1,4 @@
-# iac-dev - Release 2.0rc
+# iac-dev - Release 2.1rc
 
 This playbook configures RedHat/Centos or Debian/Ubuntu workstation for `Infrastructure as Code` development with Ansible.
 
@@ -24,9 +24,11 @@ It configures your IaC Development workstation with:
      - `git config --global user.email "you@example.com"`
      - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. *Optional* - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
+  7. *Optional Customization* :
+     - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
+     - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
-  9. launch vscode: `code` and install recommended extensions!
+  9. launch vscode: `code` and start developing!
 
 
 ## Installation Instructions Debian/Ubuntu
@@ -43,20 +45,14 @@ It configures your IaC Development workstation with:
      - `git config --global user.email "you@example.com"`
      - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. *Optional* - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
+  7. *Optional Customization* :
+     - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
+     - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
-  9. launch vscode: `code` and install recommended extensions!
+  9.  launch vscode: `code` and start developing!
 
-## Getting Started with IaC
 
-  1. [Getting Started with VSCode](https://code.visualstudio.com/docs)
-  2. [Getting Started with Ansible](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html)
-
-## Future additions
-
-### Things that still need to be done manually
-
-#### Install recommended Visual Studio Code extentions
+#### Recommended Visual Studio Code extentions
 
 - [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -66,7 +62,17 @@ It configures your IaC Development workstation with:
 - [Ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible)
 - [Excel Viewer](https://marketplace.visualstudio.com/items?itemName=GrapeCity.gc-excelviewer)
 - [GitLens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
-- [Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.team)
+
+*Notes:* 
+
+- After installation, you may want to enable/disable extension depending on what you are doing, for example I disable GitLens unless I'm reviewing code.
+- YAML Linting on Ansible playbook with *YAML Support by Red Hat* may report syntax problems which are false positives. It's not a problem with the extension but the schema, which is auto-generated from Ansible Code. see: [example issue](https://github.com/redhat-developer/vscode-yaml/issues/96)
+
+## Getting Started with IaC
+
+  1. [Getting Started with VSCode](https://code.visualstudio.com/docs)
+  2. [Getting Started with Ansible](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html)
+
 
 ## PRs welcome
 

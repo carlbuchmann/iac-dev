@@ -8,3 +8,17 @@
 - name: Load setup-Debian Tasks
   include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
+
+- name: Gather installed vscode extensions
+  become: yes
+  become_user: "{{ ansible_facts.env.SUDO_USER }}"
+  command: code  --list-extensions
+  changed_when: False
+  register: installed_extensions
+
+- name: Install vscode extensions
+  become: yes
+  become_user: "{{ ansible_facts.env.SUDO_USER }}"
+  shell: code --install-extension {{ item }}
+  with_items: "{{ vs_code_extensions | default([]) }}"
+  when: item not in installed_extensions.stdout_lines
