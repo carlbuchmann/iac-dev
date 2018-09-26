@@ -1,4 +1,4 @@
-# iac-dev - Release 2.0rc
+# iac-dev - Release 2.1rc
 
 This playbook configures RedHat/Centos or Debian/Ubuntu workstation for `Infrastructure as Code` development with Ansible.
 
@@ -28,7 +28,7 @@ It configures your IaC Development workstation with:
      - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
      - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
-  9. launch vscode: `code` and install recommended extensions!
+  9. launch vscode: `code` and start developing!
 
 
 ## Installation Instructions Debian/Ubuntu
@@ -49,7 +49,7 @@ It configures your IaC Development workstation with:
      - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
      - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
   8. run playbook: `sudo ansible-playbook iac-dev.yml`
-  9.  launch vscode: `code` and install recommended extensions!
+  9.  launch vscode: `code` and start developing!
 
 
 #### Recommended Visual Studio Code extentions
