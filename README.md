@@ -27,7 +27,7 @@ It configures your IaC Development workstation with:
   7. *Optional Customization* :
      - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
      - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
-  8. run playbook: `sudo ansible-playbook iac-dev.yml`
+  8. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
   9. launch vscode: `code` and start developing!
 
 
@@ -48,7 +48,7 @@ It configures your IaC Development workstation with:
   7. *Optional Customization* :
      - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
      - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
-  8. run playbook: `sudo ansible-playbook iac-dev.yml`
+  8. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
   9.  launch vscode: `code` and start developing!
 
 
