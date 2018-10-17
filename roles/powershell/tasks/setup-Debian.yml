@@ -1,17 +1,20 @@
 ---
   
 - name: import microsoft packages key
+  become: true
   apt_key:
     url: 'https://packages.microsoft.com/keys/microsoft.asc'
     state: present
 
 - name: Register the Microsoft Ubuntu repository
+  become: true
   apt_repository:
     repo: deb [arch=amd64] https://packages.microsoft.com/ubuntu/{{ ansible_distribution_version }}/prod {{ ansible_distribution_release }} main
     filename: packages-microsoft-com-prod
     state: present
 
 - name: Install powershell
+  become: true
   apt:
     name: powershell
     update_cache: yes
@@ -19,6 +22,7 @@
   when: ansible_distribution_version == "16.04"
 
 - name: Install powershell preview
+  become: true
   apt:
     name: powershell-preview
     update_cache: yes

@@ -3,6 +3,7 @@
 # Install Microsot Visual Studio Code on Cento/RedHat
 
 - name: install vscode repo
+  become: true
   yum_repository:
     name: code
     description: Visual Studio Code repo
@@ -12,6 +13,7 @@
     gpgcheck: yes
 
 - name: install vscode
+  become: true
   yum:
     name: code
     state: latest

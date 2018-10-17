@@ -6,6 +6,7 @@
 
 # Enable extras repo required for various packages - RedHat OS Family only
 - name: enable extras repo
+  become: true
   package:
     name: epel-release
     state: present
@@ -13,6 +14,7 @@
 
 # Install Python requirements
 - name: install python tools and cryptography
+  become: true
   package:
     name: "{{ item }}"
     state: present
@@ -20,12 +22,14 @@
 
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
 - name: install kerberos libraries dependencies
+  become: true
   package:
     name: "{{ item }}"
     state: present
   with_items: "{{ kerberos_libraries }}"
 
 - name: install python winrm and kerberos dependencies
+  become: true
   pip:
     name: "{{ item }}"
   with_items:
@@ -36,6 +40,7 @@
     - requests-ntlm
 
 - name: Configure Kerberos reamls
+  become: true
   template:
     src: kerberos-reamls.j2
     dest: /etc/krb5.conf
@@ -46,22 +51,27 @@
 # Install various python libraries for module support
 
 - name: install ansible microsoft azure dependencies
+  become: true
   pip:
     name: ansible[azure]
 
 - name: upgrade jinja2 to 2.10 or later
+  become: true
   pip:
     name: Jinja2>=2.10
 
 - name: install napalm-ansible
+  become: true
   pip:
     name: napalm-ansible
 
 - name: install network address filter
+  become: true
   pip:
     name: netaddr
 
 - name: install F5 dependencies
+  become: true
   pip:
     name: "{{ item }}"
   with_items:
@@ -70,6 +80,7 @@
     - deepdiff
 
 - name: install AWS dependencies
+  become: true
   pip:
     name: "{{ item }}"
   with_items:
@@ -78,6 +89,7 @@
     - botocore
 
 - name: install Google Cloud dependencies
+  become: true
   pip:
     name: "{{ item }}"
   with_items:
@@ -89,6 +101,7 @@
 
 # Upgrade ansible to latest stable version published on EPEL repo
 - name: upgrade ansible to latest version
+  become: true
   package:
     name: ansible
     state: latest

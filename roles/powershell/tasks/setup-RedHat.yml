@@ -3,6 +3,7 @@
 # Install Powershell Core
 
 - name: install microsoft prod repo
+  become: true
   yum_repository:
     name: packages-microsoft-com-prod
     description: microsoft prod packages
@@ -12,6 +13,7 @@
     gpgcheck: yes
 
 - name: install PowerShell Core
+  become: true
   yum:
     name: powershell
     state: present
