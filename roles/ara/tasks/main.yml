@@ -14,3 +14,51 @@
   become: true
   pip:
     name: ara
+
+- name: register ara to a systemd system
+  become: true
+  template:
+    src: ara.service.j2
+    dest: /etc/systemd/system/ara.service
+  notify:
+    - systemctl daemon-reload
+
+- name: find callback_plugins path
+  command: python -m ara.setup.callback_plugins
+  changed_when: no
+  register: ara_callback_plugins
+
+- name: configure ansible to use ara
+  become: true
+  ini_file:
+    path: "{{ ara_configuration_file }}"
+    section: defaults
+    option: callback_plugins
+    value: "{{ ara_callback_plugins.stdout }}"
+  notify:
+    - restart ara
+  when:
+    - ara_configuration_file is defined
+    - ara_callback_plugins.stdout is defined
+
+
+- name: configure ara
+  become: true
+  ini_file:
+    path: "{{ ara_configuration_file }}"
+    section: ara
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  notify:
+    - restart ara
+  with_items:
+    - "{{ ara_configuration }}"
+  when:
+    - ara_configuration is defined
+
+- name: start and enable ara
+  become: true
+  service:
+    name: ara
+    state: started
+    enabled: yes
