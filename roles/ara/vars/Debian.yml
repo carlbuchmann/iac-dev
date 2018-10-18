@@ -1,0 +1,5 @@
+ara_dependencies:
+  - gcc
+  - python-dev
+  - libffi-dev
+  - libssl-dev

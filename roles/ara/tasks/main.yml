@@ -1,0 +1,16 @@
+---
+
+- name: Include OS-specific variables.
+  include_vars: "{{ ansible_os_family }}.yml"
+
+- name: install ara dependencies
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ ara_dependencies }}"
+
+- name: install ARA Records Ansible
+  become: true
+  pip:
+    name: ara

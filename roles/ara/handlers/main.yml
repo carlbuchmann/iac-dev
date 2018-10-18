@@ -1,0 +1,14 @@
+---
+# handlers file for ara
+- name: restart ara
+  become: true
+  service:
+    name: ara
+    state: restarted
+
+- name: systemctl daemon-reload
+  become: true
+  systemd:
+    daemon_reload: yes
+  notify:
+    - restart ara

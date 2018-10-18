@@ -1,0 +1,6 @@
+ara_dependencies:
+  - gcc
+  - python-devel
+  - libffi-devel
+  - openssl-devel
+  - redhat-rpm-config
