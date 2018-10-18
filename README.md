@@ -11,6 +11,7 @@ It configures your IaC Development workstation with:
 - Latest Version of Ansible +
   - WinRM + Kerberos Authentication for windows automation through Ansible
   - Various python libraries for common modules (Azure,AWS,Google Cloud,F5,NAPALM, or add your own!)
+- [ARA Records Ansible](https://github.com/openstack/ara)
 - Remote Desktop (xRDP+TigerVNC) for easy access (RedHat/Centos Only)
 
 ## Installation Instructions RedHat/Centos
@@ -72,6 +73,7 @@ It configures your IaC Development workstation with:
 
   1. [Getting Started with VSCode](https://code.visualstudio.com/docs)
   2. [Getting Started with Ansible](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html)
+  3. [Getting Started with ARA](https://ara.readthedocs.io/en/latest/usage.html)
 
 
 ## PRs welcome
