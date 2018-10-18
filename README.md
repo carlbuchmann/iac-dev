@@ -8,7 +8,7 @@ It configures your IaC Development workstation with:
 - Python
 - PowerShell Core for Linux
 - Latest Version of Git
-- Latest Version of Ansible +
+- Latest Version of [Ansible](https://www.ansible.com/) +
   - WinRM + Kerberos Authentication for windows automation through Ansible
   - Various python libraries for common modules (Azure,AWS,Google Cloud,F5,NAPALM, or add your own!)
 - [ARA Records Ansible](https://github.com/openstack/ara)
