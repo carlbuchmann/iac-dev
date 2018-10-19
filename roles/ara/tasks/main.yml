@@ -35,7 +35,7 @@
 - name: configure ansible to use ara
   become: true
   ini_file:
-    path: "/home/cbuchmann/projects/iac-dev/ansible.cfg"
+    path: "{{ ara_configuration_file }}"
     section: defaults
     option: "{{ item.option }}"
     value: "{{ item.value }}"
