@@ -47,8 +47,6 @@
     - restart ara
   when:
     - ara_configuration_file is defined
-    - ara_callback_plugins.stdout is defined
-
 
 - name: configure ara
   become: true
