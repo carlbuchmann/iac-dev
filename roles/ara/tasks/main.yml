@@ -23,18 +23,26 @@
   notify:
     - systemctl daemon-reload
 
-- name: find callback_plugins path
-  command: python -m ara.setup.callback_plugins
+- name: find plugins & library paths
+  command: "{{ item }}"
   changed_when: no
-  register: ara_callback_plugins
+  register: ara_plugins_library_paths
+  with_items:
+    - python -m ara.setup.action_plugins
+    - python -m ara.setup.callback_plugins
+    - python -m ara.setup.library
 
 - name: configure ansible to use ara
   become: true
   ini_file:
-    path: "{{ ara_configuration_file }}"
+    path: "/home/cbuchmann/projects/iac-dev/ansible.cfg"
     section: defaults
-    option: callback_plugins
-    value: "{{ ara_callback_plugins.stdout }}"
+    option: "{{ item.option }}"
+    value: "{{ item.value }}"
+  with_items:
+    - { option: action_plugins, value: "{{ ara_plugins_library_paths.results[0].stdout }}" }
+    - { option: callback_plugins, value: "{{ ara_plugins_library_paths.results[1].stdout }}" }
+    - { option: library, value: "{{ ara_plugins_library_paths.results[2].stdout }}" }
   notify:
     - restart ara
   when:
