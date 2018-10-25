@@ -15,14 +15,6 @@
   pip:
     name: ara
 
-- name: register ara to a systemd system
-  become: true
-  template:
-    src: ara.service.j2
-    dest: /etc/systemd/system/ara.service
-  notify:
-    - systemctl daemon-reload
-
 - name: find plugins & library paths
   command: "{{ item }}"
   changed_when: no
@@ -62,9 +54,16 @@
   when:
     - ara_configuration is defined
 
-- name: start and enable ara
+- name: install Apache + mod_wsgi web services
+  become: true
+  package:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ web_server_packages }}"
+
+- name: start and enable Apache web service
   become: true
   service:
-    name: ara
+    name: httpd
     state: started
     enabled: yes
