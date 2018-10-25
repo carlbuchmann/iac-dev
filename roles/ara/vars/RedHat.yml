@@ -4,3 +4,9 @@ ara_dependencies:
   - libffi-devel
   - openssl-devel
   - redhat-rpm-config
+
+ara_binary_location: /usr/bin
+
+web_server_packages:
+  - httpd
+  - mod_wsgi

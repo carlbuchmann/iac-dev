@@ -3,3 +3,9 @@ ara_dependencies:
   - python-dev
   - libffi-dev
   - libssl-dev
+
+ara_binary_location: /usr/local/bin
+
+web_server_packages:
+  - apache2
+  - libapache2-mod-wsgi
