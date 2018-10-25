@@ -4,10 +4,10 @@
 ara_package_state: present
 
 # The ansible.cfg to modify.
-ara_configuration_file: /etc/ansible/ansible.cfg
+ara_configuration_file: ./ansible.cfg
 
 # Extra options can be set using this structure.
-# ara_configuration:
+ara_configuration:
 #   - option: port
 #     value: 9191
 #   - option: host
@@ -16,3 +16,6 @@ ara_configuration_file: /etc/ansible/ansible.cfg
 #     value: 10
 #   - option: result_per_page
 #     value: 25
+    - option: database
+      value: sqlite:////var/www/ara/.ara/ansible.sqlite
+      
