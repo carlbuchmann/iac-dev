@@ -1,4 +1,4 @@
-# iac-dev - Release 2.1
+# iac-dev - Release 2.1.1
 
 This playbook configures RedHat/Centos or Debian/Ubuntu workstation for `Infrastructure as Code` development with Ansible.
 
