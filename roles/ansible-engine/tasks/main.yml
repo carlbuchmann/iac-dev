@@ -20,7 +20,7 @@
     state: present
   with_items: "{{ python_tools }}"
 
-- name: install python gssapio + paramiko
+- name: install python gssapi + paramiko
   become: true
   pip:
     name: "{{ item }}"
