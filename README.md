@@ -18,7 +18,9 @@ It configures your IaC Development workstation with:
   1. Download and install latest version of Centos/RedHat 7 with Gnome Desktop Environment [Centos Download](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1804.iso).
   2. During installation, create local user and grant administrator privileges
   3. After successful installation, open a terminal window:
-  4. [Install Ansible](http://docs.ansible.com/intro_installation.html): `sudo yum install ansible`.
+  4. [Install Ansible] from epel repo (http://docs.ansible.com/intro_installation.html):
+     - `sudo yum install epel-release`
+     -  `sudo yum install ansible` 
   5. [Install Git](https://git-scm.com/download/linux) and configure Git user: 
      - `sudo yum install git`
      - `git config --global user.email "you@example.com"`
