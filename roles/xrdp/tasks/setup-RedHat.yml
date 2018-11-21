@@ -1,11 +1,17 @@
 # Install XRDP
 
+- name: enable epel repo
+  become: true
+  yum:
+    name: epel-release
+    state: present
+
 - name: install xrdp
   become: true
   yum:
     name: "{{ item }}"
     state: present
-    enablerepo: epel,cr
+    enablerepo: cr
   with_items:
     - xrdp
     - tigervnc-server
