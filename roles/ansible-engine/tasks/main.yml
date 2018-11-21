@@ -20,15 +20,6 @@
     state: present
   with_items: "{{ python_tools }}"
 
-- name: install python gssapi + paramiko
-  become: true
-  pip:
-    name: "{{ item }}"
-  with_items:
-    - gssapi
-    - python-gssapi
-    - paramiko
-
 # Configure Ansible to support Windows Remote management with Kerberos Authentication
 - name: install kerberos libraries dependencies
   become: true
@@ -108,7 +99,7 @@
     - google-cloud-pubsub
 
 
-# Upgrade ansible to latest stable version published on EPEL repo
+# Upgrade ansible to latest stable version published in EPEL repo
 - name: upgrade ansible to latest version
   become: true
   package:
