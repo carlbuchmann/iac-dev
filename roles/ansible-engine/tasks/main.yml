@@ -99,7 +99,7 @@
     - google-cloud-pubsub
 
 
-# Upgrade ansible to latest stable version published on EPEL repo
+# Upgrade ansible to latest stable version published in EPEL repo
 - name: upgrade ansible to latest version
   become: true
   package:
