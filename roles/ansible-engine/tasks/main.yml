@@ -63,7 +63,10 @@
 - name: install napalm-ansible
   become: true
   pip:
-    name: napalm-ansible
+    name: "{{ item }}"
+  with_items: 
+    - napalm-ansible
+    - python-gssapi
 
 - name: install network address filter
   become: true
