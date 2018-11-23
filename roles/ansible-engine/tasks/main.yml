@@ -64,7 +64,7 @@
   become: true
   pip:
     name: "{{ item }}"
-  item: 
+  with_items: 
     - napalm-ansible
     - python-gssapi
 
