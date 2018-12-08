@@ -3,11 +3,10 @@
 - name: install vscode dependencies
   become: true
   apt:
-    name: "{{ item }}"
+    name:
+      - ca-certificates
+      - apt-transport-https
     state: present
-  with_items:
-    - ca-certificates
-    - apt-transport-https
 
 - name:  import microsoft packages key
   become: true
