@@ -9,13 +9,12 @@
 - name: install xrdp
   become: true
   yum:
-    name: "{{ item }}"
+    name:
+      - xrdp
+      - tigervnc-server
     state: present
     enablerepo: cr
-  with_items:
-    - xrdp
-    - tigervnc-server
-
+  
 - name: start and enable xrdp service
   become: true
   service:

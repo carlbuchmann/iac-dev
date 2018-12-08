@@ -31,13 +31,12 @@
 - name: install python winrm and kerberos dependencies
   become: true
   pip:
-    name: "{{ item }}"
-  with_items:
-    - pywinrm
-    - pywinrm[kerberos]
-    - pykerberos>=1.2.1
-    - requests-kerberos
-    - requests-ntlm
+    name:
+      - pywinrm
+      - pywinrm[kerberos]
+      - pykerberos>=1.2.1
+      - requests-kerberos
+      - requests-ntlm
 
 - name: Configure Kerberos reamls
   become: true
@@ -63,10 +62,9 @@
 - name: install napalm-ansible
   become: true
   pip:
-    name: "{{ item }}"
-  with_items: 
-    - napalm-ansible
-    - python-gssapi
+    name:
+      - napalm-ansible
+      - python-gssapi
 
 - name: install network address filter
   become: true
@@ -76,30 +74,27 @@
 - name: install F5 dependencies
   become: true
   pip:
-    name: "{{ item }}"
-  with_items:
-    - f5-sdk
-    - bigsuds
-    - deepdiff
+    name:
+      - f5-sdk
+      - bigsuds
+      - deepdiff
 
 - name: install AWS dependencies
   become: true
   pip:
-    name: "{{ item }}"
-  with_items:
-    - boto
-    - boto3
-    - botocore
+    name:
+      - boto
+      - boto3
+      - botocore
 
 - name: install Google Cloud dependencies
   become: true
   pip:
-    name: "{{ item }}"
-  with_items:
-    - apache-libcloud
-    - boto
-    - google-auth
-    - google-cloud-pubsub
+    name:
+      - apache-libcloud
+      - boto
+      - google-auth
+      - google-cloud-pubsub
 
 
 # Upgrade ansible to latest stable version published in EPEL repo
