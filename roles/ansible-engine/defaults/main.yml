@@ -1,8 +1,0 @@
----
-
-# Enter windows domain name
-domain: homelab.local
-# Enter Domain controllers list
-domain_controllers:
-  - dc01.homelab.local
-  - dc02.homelab.local

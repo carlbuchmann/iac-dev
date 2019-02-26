@@ -1,0 +1,20 @@
+
+- src: https://github.com/carlbuchmann/ansible-role-ansible-engine
+  version: initial-development
+  name: ansible-engine
+
+- src: https://github.com/carlbuchmann/ansible-role-git
+  version: initial-development
+  name: git
+
+- src: https://github.com/carlbuchmann/ansible-role-powershell
+  version: initial-development
+  name: powershell
+
+- src: https://github.com/carlbuchmann/ansible-role-vscode
+  version: initial-development
+  name: vscode
+
+- src: https://github.com/carlbuchmann/ansible-role-xrdp
+  version: initial-development
+  name: xrdp
