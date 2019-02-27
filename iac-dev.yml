@@ -1,24 +1,34 @@
 - hosts: localhost
+  become: true
 
   tasks:
  
-  - name: Install XRDP
-    include_role:
-       name: xrdp
+    - name: Install Git
+      import_role:
+        name: git
+      tags: git
+    
+    - name: Install PowerShell
+      import_role:
+        name: powershell
+      tags: powershell
+ 
+    - name: Install XRDP
+      import_role:
+        name: xrdp
+      tags: xrdp
 
-  - name: Install Visual Studio Code
-    include_role:
-       name: vscode
+    - name: Deploy latest version of ansible, enable windows remote management with kerberos and install various module dependencies
+      import_role:
+        name: ansible-engine
+      tags: ansible
 
-  - name: Install Git
-    include_role:
-       name: git
+- hosts: localhost
 
-  - name: Install PowerShell
-    include_role:
-       name: powershell
-
-  - name: Deploy latest version of ansible, enable windows remote management with kerberos and install various module dependencies
-    include_role:
-       name: ansible-engine
+  tasks:
+ 
+    - name: Install Visual Studio Code
+      import_role:
+        name: vscode
+      tags: vscode
 

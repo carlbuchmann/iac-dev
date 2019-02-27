@@ -1,4 +1,12 @@
-vs_code_extensions:
+# windows domain name
+domain: homelab.local
+# Domain controllers list
+domain_controllers:
+  - dc01.homelab.local
+  - dc02.homelab.local
+
+# Micrososft Visual Studio Extensions
+vscode_extensions:
   - redhat.vscode-yaml
   - samuelcolvin.jinjahtml
   - ms-python.python

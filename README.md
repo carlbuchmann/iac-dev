@@ -1,4 +1,4 @@
-# iac-dev - Release 2.1.3
+# iac-dev - Release 2.2rc
 
 This playbook configures RedHat/Centos or Debian/Ubuntu workstation for `Infrastructure as Code` development with Ansible.
 
@@ -26,11 +26,13 @@ It configures your IaC Development workstation with:
      - `git config --global user.email "you@example.com"`
      - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. *Optional Customization* :
-     - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
-     - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
-  8. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
-  9. launch vscode: `code` and start developing!
+  7. change directory to iac-dev `cd iac-dev/`
+  8. Install requires roles: `ansible-galaxy install -r roles/requirements.yml --force`
+  9. *Optional Customization* :
+     - to enable WinRM: Edit `./iac-dev/host_vars/localhost.yml` and enter your active directory domain information
+     - Add/remove vscode extensions: Edit `./iac-dev/host_vars/localhost.yml` ( recommended extensions will be installed by default )
+  10. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
+  11. launch vscode: `code` and start developing!
 
 ## Installation Instructions Debian/Ubuntu
 
@@ -46,17 +48,19 @@ It configures your IaC Development workstation with:
      - `git config --global user.email "you@example.com"`
      - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. *Optional Customization* :
-     - to enable WinRM: Edit `./iac-dev/roles/ansible-engine/defaults/main.yml` and enter your active directory domain information
-     - Add/remove vscode extensions: Edit `./iac-dev/roles/vscode/defaults/main.yml` ( recommended extensions will be installed by default )
-  8. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
-  9. launch vscode: `code` and start developing!
+  7. change directory to iac-dev `cd iac-dev/`
+  8. Install requires roles: `ansible-galaxy install -r roles/requirements.yml --force`
+  9. *Optional Customization* :
+     - to enable WinRM: Edit `./iac-dev/host_vars/localhost.yml` and enter your active directory domain information
+     - Add/remove vscode extensions: Edit `./iac-dev/host_vars/localhost.yml` ( recommended extensions will be installed by default )
+  10. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
+  11. launch vscode: `code` and start developing!
 
 ### Recommended Visual Studio Code extentions
 
 - [YAML Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-yaml)
 - [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-- [Jinja](https://marketplace.visualstudio.com/items?itemName=wholroyd.jinja)
+- [Jinja](https://marketplace.visualstudio.com/items?itemName=samuelcolvin.jinjahtml)
 - [PowerShell](https://marketplace.visualstudio.com/items?itemName=ms-vscode.PowerShell)
 - [markdownlint](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint)
 - [Ansible](https://marketplace.visualstudio.com/items?itemName=vscoss.vscode-ansible)
