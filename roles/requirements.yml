@@ -1,6 +1,6 @@
 
 - src: https://github.com/carlbuchmann/ansible-role-ansible-engine
-  version: v1.1
+  version: v1.2
   name: ansible-engine
 
 - src: https://github.com/carlbuchmann/ansible-role-git
