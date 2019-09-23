@@ -13,10 +13,11 @@
         name: powershell
       tags: powershell
  
-    - name: Install XRDP
-      import_role:
-        name: xrdp
-      tags: xrdp
+ #disabling rdp, because issue with upstream repo
+ #   - name: Install XRDP
+ #     import_role:
+ #       name: xrdp
+ #     tags: xrdp
 
     - name: Deploy latest version of ansible, enable windows remote management with kerberos and install various module dependencies
       import_role:
