@@ -1,0 +1,43 @@
+---
+
+# Install XRDP
+
+- name: enable epel repo
+  become: true
+  yum:
+    name: epel-release
+    state: present
+
+- name: install xrdp
+  become: true
+  yum:
+    name:
+      - xrdp
+      - tigervnc-server
+    state: present
+    enablerepo: cr
+
+- name: start and enable xrdp service
+  become: true
+  service:
+    name: xrdp
+    enabled: yes
+    state: started
+
+- name: enable rdp 3389/tcp
+  become: true
+  firewalld:
+    port: 3389/tcp
+    permanent: true
+    state: enabled
+  notify: restart firewalld
+
+- name: Configure SE Linux for XRDP
+  become: true
+  sefcontext:
+    target: "{{ item }}"
+    setype: bin_t
+    state: present
+  with_items:
+    - '/usr/sbin/xrdp'
+    - '/usr/sbin/xrdp-sesman'

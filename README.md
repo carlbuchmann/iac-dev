@@ -13,38 +13,21 @@ It configures your IaC Development workstation with:
   - Various python libraries for common modules (Azure,AWS,Google Cloud,F5,NAPALM, or add your own!)
 - Remote Desktop (xRDP+TigerVNC) for easy access (RedHat/Centos Only)
 
-## Installation Instructions RedHat/Centos
+## Installation Instructions Centos 7 - 1908
 
-  1. Download and install latest version of Centos/RedHat 7 with Gnome Desktop Environment [Centos Download](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1804.iso).
-  2. During installation, create local user and grant administrator privileges
+  1.  Create VM with minimum 2 vCPUs and 4096 MB RAM
+  2.  Download and install `CentOS-7-x86_64-DVD-1908.iso` [Centos Download](http://less.cogeco.net/CentOS/7.7.1908/isos/x86_64/).
+     - Software Selection: Gnome Desktop + Development Tools & System Adminstation Tools
+     - Installation Destination: Automatic partition
+     - Configure hostname and network
+     - During installation, create local user and make this user administrator
   3. After successful installation, open a terminal window:
+  4. Install latest update: `sudo yum update` and reboot system
   4. [Install Ansible](http://docs.ansible.com/intro_installation.html) from epel repo:
      - `sudo yum install epel-release`
      - `sudo yum install ansible`
   5. [Install Git](https://git-scm.com/download/linux) and configure Git user:
      - `sudo yum install git`
-     - `git config --global user.email "you@example.com"`
-     - `git config --global user.name "Your Name"`
-  6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. change directory to iac-dev `cd iac-dev/`
-  8. Install requires roles: `ansible-galaxy install -r roles/requirements.yml --force`
-  9. *Optional Customization* :
-     - to enable WinRM: Edit `./iac-dev/host_vars/localhost.yml` and enter your active directory domain information
-     - Add/remove vscode extensions: Edit `./iac-dev/host_vars/localhost.yml` ( recommended extensions will be installed by default )
-  10. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
-  11. launch vscode: `code` and start developing!
-
-## Installation Instructions Debian/Ubuntu
-
-  1. Download and install latest version of Debian/Ubuntu 18.0.4 Desktop [Ubuntu Download](https://www.ubuntu.com/download/desktop).
-  2. During installation, create local user and grant administrator privileges
-  3. After successful installation, open a terminal window:
-  4. [Install Ansible](http://docs.ansible.com/intro_installation.html):
-     - `sudo apt-add-repository ppa:ansible/ansible`
-     - `sudo apt-get update`
-     - `sudo apt-get install ansible`.
-  5. [Install Git](https://git-scm.com/download/linux) and configure Git user:
-     - `sudo apt-get install git-core`
      - `git config --global user.email "you@example.com"`
      - `git config --global user.name "Your Name"`
   6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`

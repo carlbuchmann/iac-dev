@@ -1,0 +1,29 @@
+---
+
+# Install Microsot Visual Studio Code on Cento/RedHat
+
+- name: install vscode repo
+  become: true
+  yum_repository:
+    name: code
+    description: Visual Studio Code repo
+    file: vscode
+    baseurl: https://packages.microsoft.com/yumrepos/vscode
+    gpgkey: https://packages.microsoft.com/keys/microsoft.asc
+    gpgcheck: yes
+
+- name: install vscode
+  become: true
+  yum:
+    name: code
+    state: latest
+
+- name: Gather installed vscode extensions
+  command: code  --list-extensions
+  changed_when: False
+  register: installed_extensions
+
+- name: Install vscode extensions
+  shell: code --install-extension {{ item }}
+  with_items: "{{ vscode_extensions | default([]) }}"
+  when: item not in installed_extensions.stdout_lines

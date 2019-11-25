@@ -2,31 +2,27 @@
   become: true
 
   tasks:
- 
+
     - name: Install Git
       import_role:
         name: git
       tags: git
-    
-    - name: Install PowerShell
+
+    - name: Install Docker
       import_role:
-        name: powershell
-      tags: powershell
- 
+        name: docker
+      tags: docker
+
     - name: Install XRDP
       import_role:
         name: xrdp
       tags: xrdp
-
-    - name: Deploy latest version of ansible, enable windows remote management with kerberos and install various module dependencies
-      import_role:
-        name: ansible-engine
-      tags: ansible
+      when: install_xrdp  == true
 
 - hosts: localhost
 
   tasks:
- 
+
     - name: Install Visual Studio Code
       import_role:
         name: vscode

@@ -1,5 +1,4 @@
-# Micrososft Visual Studio Extensions
-vscode_extensions:
+vs_code_extensions:
   - redhat.vscode-yaml
   - samuelcolvin.jinjahtml
   - ms-python.python

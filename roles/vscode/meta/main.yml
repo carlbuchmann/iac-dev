@@ -1,0 +1,18 @@
+---
+dependencies: []
+
+galaxy_info:
+  author: Carl Buchmann
+  description: Installs and configures Visual Studio Code + Extensions
+  company: none
+  license: "license (BSD, MIT)"
+  min_ansible_version: 2.6
+  platforms:
+    - name: EL
+      version:
+        - 7
+  galaxy_tags:
+    - vscode
+    - development
+    - centos
+    - rhel
