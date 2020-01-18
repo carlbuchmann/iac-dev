@@ -1,0 +1,9 @@
+---
+# tasks file for gnome_desktop
+
+# Install Gnome Desktop Environment
+
+- name: install Gnome Desktop
+  yum:
+    name: "@^gnome-desktop-environment"
+    state: present
