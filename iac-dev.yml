@@ -3,6 +3,11 @@
 
   tasks:
 
+    - name: Install Gnome Desktop Environment
+      import_role:
+        name: gnome_desktop
+      tags: gnome
+
     - name: Install Git
       import_role:
         name: git
@@ -17,7 +22,6 @@
       import_role:
         name: xrdp
       tags: xrdp
-      when: install_xrdp  == true
 
 - hosts: localhost
 
