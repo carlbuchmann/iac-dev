@@ -3,7 +3,7 @@
 
 # Install Gnome Desktop Environment
 
-- name: install Gnome Desktop
+- name: Install Gnome Desktop
   yum:
     name: "@^gnome-desktop-environment"
     state: present
