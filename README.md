@@ -15,29 +15,34 @@ It configures your IaC Development workstation with:
 
 ## Installation Instructions Centos 7 - 1908
 
-  1.  Create VM with minimum 2 vCPUs and 4096 MB RAM
-  2.  Download and install `CentOS-7-x86_64-DVD-1908.iso` [Centos Download](http://less.cogeco.net/CentOS/7.7.1908/isos/x86_64/).
+1. Create VM with minimum 2 vCPUs and 4096 MB RAM
+2. Download and install `CentOS-7-x86_64-DVD-1908.iso` [Centos Download](http://centos.mirror.rafal.ca/7.7.1908/isos/x86_64/).
      - Software Selection: Gnome Desktop + Development Tools & System Adminstation Tools
      - Installation Destination: Automatic partition
      - Configure hostname and network
      - During installation, create local user and make this user administrator
-  3. After successful installation, open a terminal window:
-  4. Install latest update: `sudo yum update` and reboot system
-  4. [Install Ansible](http://docs.ansible.com/intro_installation.html) from epel repo:
-     - `sudo yum install epel-release`
-     - `sudo yum install ansible`
-  5. [Install Git](https://git-scm.com/download/linux) and configure Git user:
+3. After successful installation, open a terminal window:
+4. Install latest update: `sudo yum update` and reboot system
+5. [Install Ansible](http://docs.ansible.com/intro_installation.html) from epel repo:
+
+      ```bash
+      sudo yum install epel-release
+      sudo yum install python-pip
+      sudo pip install --upgrade pip
+      sudo pip install ansible==2.9.3
+      ```
+
+6. [Install Git](https://git-scm.com/download/linux) and configure Git user:
      - `sudo yum install git`
      - `git config --global user.email "you@example.com"`
      - `git config --global user.name "Your Name"`
-  6. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
-  7. change directory to iac-dev `cd iac-dev/`
-  8. Install requires roles: `ansible-galaxy install -r roles/requirements.yml --force`
-  9. *Optional Customization* :
-     - to enable WinRM: Edit `./iac-dev/host_vars/localhost.yml` and enter your active directory domain information
-     - Add/remove vscode extensions: Edit `./iac-dev/host_vars/localhost.yml` ( recommended extensions will be installed by default )
-  10. run playbook: `ansible-playbook iac-dev.yml --ask-become-pass`
-  11. launch vscode: `code` and start developing!
+7. Clone this repository to your home directory: `git clone https://github.com/carlbuchmann/iac-dev`
+8. change directory to iac-dev `cd iac-dev/`
+9. *Optional Customization* - Edit `./iac-dev/host_vars/localhost.yml`:
+     - Add/remove `vscode_extensions:` ( recommended extensions will be installed by default )
+     - add user to `docker_users:`
+10. run playbook: `ansible-playbook iac-dev-desktop.yml --ask-become-pass`
+11. launch vscode: `code` and start developing!
 
 ### Recommended Visual Studio Code extentions
 
