@@ -15,7 +15,7 @@ Dockerfiles are available for the following platforms:
 - Centos 7 Python 3.6.8 -> PLATFORM=centos7-py3
 - Centos 8 Python 3.6.8 -> PLATFORM=centos8
 
-```bash
+```shell
 docker build -f -f ./docker/<platform>/Dockerfile -t ansible_avd . --build-arg UID=$(id -u) --build-arg GID=$(id -g) --build-arg ANSIBLE=<ansible version>
 ```
 
@@ -24,13 +24,13 @@ following command. Note that specifying the -u option allows you to run the
 container as your user-id and not as root. This eliminates problem with
 creating files owned by root in your repo.
 
-```bash
+```shell
 docker run -t -d --name ansible_avd -v $(pwd)/:/ansible_avd -v /etc/hosts:/etc/hosts ansible_avd
 ```
 
 Use docker exec to login into the container with a bash shell.
 
-```bash
+```shell
 docker exec -it ansible_avd bash
 ```
 
@@ -39,7 +39,7 @@ this in a single step.  A user can pass the ansible version number to make and a
 ansible-version number.  This allows a user to setup multiple containers running differing
 versions of ansible.
 
-```bash
+```shell
 make PLATFORM=centos8           # Use default version of Ansible w/Centos8
 make PLATFORM=centos8 ANSIBLE_VERSION=2.9.1  # Explicitly set Ansible version to 2.9.1 w/Centos8
 
@@ -52,7 +52,7 @@ a9d97c5a6f6c        ansible_avd:2.9.2   "/bin/sh"           7 seconds ago       
 Another make target (clean) has been created to stop and remove the container once the user
 is finished with it.
 
-```bash
+```shell
 make PLATFORM=centos8 clean        #  clean default version of Ansible w/Centos8
 make PLATFORM=centos8 ANSIBLE_VERSION=2.9.1  clean # Explicitly clean Ansible version to 2.9.1 w/Centos8
 

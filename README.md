@@ -17,7 +17,7 @@ It configures your IaC Development workstation with:
 
 1. Create VM with minimum 2 vCPUs and 4096 MB RAM
 2. Download and install `CentOS-7-x86_64-DVD-1908.iso` [Centos Download](http://centos.mirror.rafal.ca/7.7.1908/isos/x86_64/).
-     - Software Selection: Gnome Desktop + Development Tools & System Adminstation Tools
+     - Software Selection: Gnome Desktop + Development Tools & System Administration Tools
      - Installation Destination: Automatic partition
      - Configure hostname and network
      - During installation, create local user and make this user administrator
@@ -25,7 +25,7 @@ It configures your IaC Development workstation with:
 4. Install latest update: `sudo yum update` and reboot system
 5. [Install Ansible](http://docs.ansible.com/intro_installation.html) from epel repo:
 
-      ```bash
+      ```shell
       sudo yum install epel-release
       sudo yum install python-pip
       sudo pip install --upgrade pip
