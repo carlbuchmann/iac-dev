@@ -15,7 +15,7 @@ It configures your IaC Development workstation with:
 
 ## Installation Instructions RedHat/Centos
 
-  1. Download and install latest version of Centos/RedHat 7 with Gnome Desktop Environment [Centos Download](http://isoredirect.centos.org/centos/7/isos/x86_64/CentOS-7-x86_64-Everything-1804.iso).
+  1. Download and install latest version of Centos/RedHat 7 with Gnome Desktop Environment [Centos Download](https://www.centos.org/download/).
   2. During installation, create local user and grant administrator privileges
   3. After successful installation, open a terminal window:
   4. [Install Ansible](http://docs.ansible.com/intro_installation.html) from epel repo:
